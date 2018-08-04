@@ -12,10 +12,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="user")
 public class UserController {
 
+    @RequestMapping(value = "")
+    public String index(Model model) {
+        model.addAttribute("title", "Ember: User Login");
+
+        return "index";
+    }
+
     @RequestMapping(value = "adduser")
     public String adduser(Model model) {
 
-        model.addAttribute("title", "User Signup");
+        model.addAttribute("title", "Ember: User Registration");
 
         return "user/adduser";
     }
@@ -28,7 +35,7 @@ public class UserController {
         } else {
             model.addAttribute("username", user.getUsername());
             model.addAttribute("email", user.getEmail());
-            model.addAttribute("title", "User Registration");
+            model.addAttribute("title", "Ember: User Registration");
             model.addAttribute("message", "Passwords do not match");
             return "user/add";
         }
