@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+    <h1 th:text="${title}">Default Title</h1>
+
+    <nav th:replace="fragments :: navigation"></nav>
+
+    <h1>Ticket Search</h1>
+    <p>This will be 2 search fields.</p>
+    <ul>
+        <li>Last name</li>
+        <li>Ticket number</li>
+    </ul>
+    <p>Last name will pull up a table showing all entries with that last name.
+        Data will show: First name, Last name, email address, ticket#. The ticket# will
+        be a link taking you to the registration page, bring all that data over. </p>
+    <p>The ticket number will bring up a table showing just the info tied to that
+        ticket number: First name, Last name, email address, ticket#. The ticket# will
+        be a link taking you to the registration page, bring all that data over.</p>
+
+
+    <p><a href="/registration/register">Registration</a></p>
+</body>
+</html>

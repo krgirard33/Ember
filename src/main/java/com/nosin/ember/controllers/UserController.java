@@ -14,19 +14,18 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping(value="user/login")
+@RequestMapping(value="user")
 public class UserController {
 
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value="user/login")
-    public String
 
-    @RequestMapping(value="user/login", method = RequestMethod.GET)
+    @RequestMapping(value="login", method = RequestMethod.GET)
     public String processLoginForm(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
-            model.addAttribute("username", user.get)
 
+        model.addAttribute("username", newUser.getUsername());
+        return "user/login";
     }
 
     @RequestMapping(value = "adduser")
