@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<h1>Places</h1>
+<p>A list of how many people are camping in each area, as well as a list of theme
+    camps in each area. Clicking on a link should bring up a page showing the names of
+    those in that area</p>
+<p>Something like:</p>
+<ul>
+    <li><a href="/">Suburbia</a>: 43 out of 110</li>
+    <ul>
+        <li><a href="/">MotherUnit</a></li>
+        <li><a href="/">HOIR Island</a></li>
+    </ul>
+    <li><a href="/">Upper Quad</a>: 37 out of 40</li>
+    <ul>
+        <li><a href="/">Dead Dancing</a></li>
+        <li><a href="/">Rucksack</a></li>
+    </ul>
+</ul>
+
+</body>
+</html>

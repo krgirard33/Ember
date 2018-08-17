@@ -23,7 +23,7 @@ public class UserController {
 
     @RequestMapping(value="login", method = RequestMethod.GET)
     public String processLoginForm(@ModelAttribute @Valid User newUser, Errors errors, Model model) {
-
+        model.addAttribute("title", "Ember: Login");
         model.addAttribute("username", newUser.getUsername());
         return "user/login";
     }
