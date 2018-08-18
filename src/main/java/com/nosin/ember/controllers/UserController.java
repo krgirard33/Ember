@@ -28,23 +28,22 @@ public class UserController {
         return "user/login";
     }
 
-    @RequestMapping(value = "adduser")
+    @RequestMapping(value = "adduser", method = RequestMethod.GET)
     public String adduser(Model model) {
 
         model.addAttribute("title", "Ember: User Registration");
-
+        model.addAttribute(new User());
         return "user/adduser";
     }
 
     @RequestMapping(value = "adduser", method = RequestMethod.POST)
-    public String adduser(Model model, @ModelAttribute User user, String verify) {
+    public String adduser(Model model, @ModelAttribute @Valid User user, String verify) {
         if(verify.equals(user.getPassword())) {
             model.addAttribute("user", user);
-            return "user/index";
+            return "index";
         } else {
-            model.addAttribute("username", user.getUsername());
-            model.addAttribute("email", user.getEmail());
             model.addAttribute("title", "Ember: User Registration");
+            model.addAttribute("username", user.getUsername());
             model.addAttribute("message", "Passwords do not match");
             return "user/add";
         }
