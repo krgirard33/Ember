@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${camps.size()}">No themecamps yet</p>
+
+<p>A list of each area(link), how many people are camping in that area, a list of theme
+    camps(link) in each area. Clicking on a link should bring up a page showing the names of
+    attendees in that area</p>
+
+<p>Something like:</p>
+
+<ul>
+    <li th:each="camp : ${camps}">
+        <a th:text="${camp.name}"></a>
+    </li>
+</ul>
+
+</body>
+</html>
