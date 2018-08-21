@@ -6,22 +6,20 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<h1>Places</h1>
-<p>A list of how many people are camping in each area, as well as a list of theme
-    camps in each area. Clicking on a link should bring up a page showing the names of
-    those in that area</p>
+<p th:unless="${places.size()}">No places yet</p>
+
+<p>A list of each area(link), how many people are camping in that area, a list of theme
+    camps(link) in each area. Clicking on a link should bring up a page showing the names of
+    attendees in that area</p>
 <p>Something like:</p>
+
 <ul>
-    <li><a href="/">Suburbia</a>: 43 out of 110</li>
-    <ul>
-        <li><a href="/">MotherUnit</a></li>
-        <li><a href="/">HOIR Island</a></li>
-    </ul>
-    <li><a href="/">Upper Quad</a>: 37 out of 40</li>
-    <ul>
-        <li><a href="/">Dead Dancing</a></li>
-        <li><a href="/">Rucksack</a></li>
-    </ul>
+    <li th:each="place : ${places}">
+        <a th:text="${place.name}"></a>
+        <ul>
+            <li>Theme Camp Name</li>
+        </ul>
+    </li>
 </ul>
 
 </body>
