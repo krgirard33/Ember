@@ -37,13 +37,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "adduser", method = RequestMethod.POST)
-    public String adduser(Model model, @ModelAttribute @Valid User user, String verify) {
-        if(verify.equals(user.getPassword())) {
-            model.addAttribute("user", user);
+    public String adduser(Model model, @ModelAttribute @Valid User newUser, String verify) {
+        if(verify.equals(newUser.getPassword())) {
+            model.addAttribute("user", newUser);
+            userDao.save(newUser);
             return "index";
         } else {
             model.addAttribute("title", "Ember: User Registration");
-            model.addAttribute("username", user.getUsername());
+            model.addAttribute("username", newUser.getUsername());
             model.addAttribute("message", "Passwords do not match");
             return "user/add";
         }
