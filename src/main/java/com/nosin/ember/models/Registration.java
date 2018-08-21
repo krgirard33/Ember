@@ -1,13 +1,12 @@
 package com.nosin.ember.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Registration {
+public class
+Registration {
 
     @Id
     @GeneratedValue
@@ -44,11 +43,16 @@ public class Registration {
 
     private String country;
 
+    @ManyToOne
+    private Themecamp themecamp;
+
+    @ManyToOne
+    private Placement placement;
 
     public Registration() { }
 
     public Registration(String firstName, String lastName, String burnerName, String email, String address1,
-                        String address2, String city, String state, String zip, String country) {
+                        String address2, String city, String state, String zip, String country, Themecamp themecamp, Placement placement) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.burnerName = burnerName;
@@ -59,6 +63,8 @@ public class Registration {
         this.state = state;
         this.zip = zip;
         this.country = country;
+        this.themecamp = themecamp;
+        this.placement = placement;
     }
 
     public int getId() {
@@ -147,5 +153,21 @@ public class Registration {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Themecamp getThemecamp() {
+        return themecamp;
+    }
+
+    public void setThemecamp(Themecamp themecamp) {
+        this.themecamp = themecamp;
+    }
+
+    public Placement getPlacement() {
+        return placement;
+    }
+
+    public void setPlacement(Placement placement) {
+        this.placement = placement;
     }
 }

@@ -34,8 +34,27 @@
             <label for="ticketnumber-field">Password:</label>
             <input class="form-control" id="ticketnumber-field" type="text" name="ticketnumber" />
         </div>
+
+        <div class="form-group">
+            <label th:for="type">Placement</label>
+            <select name="palcementId">
+                <option th:each="place : ${places}"
+                        th:text="${place.name}"
+                        th:value="${place.id}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label th:for="type">Themecamp</label>
+            <select name="themcampId">
+                <option th:each="camp : ${camps}"
+                        th:text="${camp.name}"
+                        th:value="${camp.id}"></option>
+            </select>
+        </div>
+        <!--
         <div class="form-group">
             <select>
+                <option value="none">None</option>
                 <option value="suburbia">Suburbia</option>
                 <option value="quiet1">Quiet 1</option>
                 <option value="lowerquad">Lower Quad</option>
@@ -44,12 +63,11 @@
                 <option value="rvlot">RV Lot</option>
             </select>
         </div>
+        -->
         <input type="submit" value="Update info" />
     </form>
 
     <span class="error" th:text="${message}"></span>
-
-
 
 </body>
 </html>
